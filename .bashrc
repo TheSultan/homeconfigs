@@ -58,8 +58,6 @@ alias fastboot='/usr/local/android-sdk-macosx/platform-tools/fastboot'
 
 alias flushdns="sudo killall -HUP mDNSResponder"
 
-alias vagrant=/Applications/Vagrant/bin/vagrant
-
 # Homebrew happiness: Ensure /usr/local/bin preceds /usr/bin
 PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
