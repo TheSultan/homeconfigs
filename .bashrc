@@ -71,7 +71,6 @@ export EDITOR=/usr/bin/vim
 export EC2_HOME
 export SCALA_HOME=/usr/local/Cellar/scala/2.10.3/libexec
 export ANT_HOME=/usr/share/ant
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export PATH
 
