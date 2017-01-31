@@ -11,6 +11,13 @@ call vundle#begin()
   Plugin 'pangloss/vim-javascript'
   Plugin 'nathanaelkane/vim-indent-guides'
   Plugin 'scrooloose/syntastic'
+  "Vagrant
+  Plugin 'hashivim/vim-vagrant'
+  "Chef with dependencies
+  Bundle "MarcWeber/vim-addon-mw-utils"
+  Bundle "tomtom/tlib_vim"
+  Bundle "garbas/vim-snipmate"
+  Bundle "vadv/vim-chef"
 call vundle#end()            " required
 filetype plugin indent on    " required
 

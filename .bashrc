@@ -53,8 +53,10 @@ alias ll='ls -GphFl'
 alias npm='sudo npm'
 
 # add android tools
-alias adb='/usr/local/android-sdk-macosx/platform-tools/adb'
-alias fastboot='/usr/local/android-sdk-macosx/platform-tools/fastboot'
+export ANDROID_HOME=/usr/local/android-sdk-macosx/
+PATH=${PATH}:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools
+#alias adb='/usr/local/android-sdk-macosx/platform-tools/adb'
+#alias fastboot='/usr/local/android-sdk-macosx/platform-tools/fastboot'
 
 alias flushdns="sudo killall -HUP mDNSResponder"
 
@@ -80,6 +82,7 @@ alias watch="~/bin/watch.sh"
 
 alias gateway="netstat -nr | grep '^default'"
 alias fixcamera="sudo killall VDCAssistant;sudo killall AppleCameraAssistant" 
+alias fixaudio="sudo killall coreaudiod"
 
 #Python virtual env
 source ~/bin/python/dev/bin/activate
