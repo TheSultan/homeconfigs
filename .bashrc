@@ -4,10 +4,6 @@ EC2_HOME=/usr/local
 #EC2_PRIVATE_KEY=/home/slo/.ec2/rabsdatadrone.pem
 #EC2_CERT=~/.ec2/certificate.pem
 #set -l path = ( $path $EC2_HOME/bin )
-export AWS_ACCESS_KEY="AKIAJO3DCYP4J7Z567QQ"
-export AWS_SECRET_KEY="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"
-export EC2_ACCESS_KEY=$AWS_ACCESS_KEY
-export EC2_SECRET_KEY=$AWS_SECRET_KEY
 
 PATH=$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/Current
 PATH=$PATH:/usr/local/android-sdk-macosx/tools:/usr/local/apache-maven-3.0.x/bin
@@ -75,6 +71,7 @@ export ANT_HOME=/usr/share/ant
 export PATH
 
 export PS1="\u@\h \t> "
+export PROMPT_COMMAND="echo -ne '\033]0;${USER}@${HOSTNAME}\007';$PROMPT_COMMAND"
 #TODO: Fix root prompt setting, not working
 #export SUDO_PS1="\[\e[33;1;41m\][\u] \w \$\[\e[0m\] "
 
@@ -83,9 +80,11 @@ alias watch="~/bin/watch.sh"
 alias gateway="netstat -nr | grep '^default'"
 alias fixcamera="sudo killall VDCAssistant;sudo killall AppleCameraAssistant" 
 alias fixaudio="sudo killall coreaudiod"
+alias tunnelproddbread="ssh -f prodwww -L 3309:navyaproddb-read.c251koyvnaar.ap-southeast-1.rds.amazonaws.com:3306 -N"
+alias tunnelpreproddbread="ssh -f preprod -L 3310:pre-production.c251koyvnaar.ap-southeast-1.rds.amazonaws.com:3306 -N"
 
 #Python virtual env
 source ~/bin/python/dev/bin/activate
 
 export NVM_DIR="/Users/sultan/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
