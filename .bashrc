@@ -45,9 +45,6 @@ alias flip='pushd_builtin'
 alias ls='ls -Gph'
 alias ll='ls -GphFl'
 
-# alias npm to run as sudo since it never seems to work without it
-alias npm='sudo npm'
-
 # add android tools
 export ANDROID_HOME=/usr/local/android-sdk-macosx/
 PATH=${PATH}:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools
@@ -82,9 +79,16 @@ alias fixcamera="sudo killall VDCAssistant;sudo killall AppleCameraAssistant"
 alias fixaudio="sudo killall coreaudiod"
 alias tunnelproddbread="ssh -f prodwww -L 3309:navyaproddb-read.c251koyvnaar.ap-southeast-1.rds.amazonaws.com:3306 -N"
 alias tunnelpreproddbread="ssh -f preprod -L 3310:pre-production.c251koyvnaar.ap-southeast-1.rds.amazonaws.com:3306 -N"
+alias dockerstopall="docker stop \$(docker ps -a -q)"
+alias dockerrmall="docker rm \$(docker ps -a -q)"
+alias dockerstats="docker stats \$(docker ps | awk '{if(NR>1) print \$NF}')"
 
 #Python virtual env
 source ~/bin/python/dev/bin/activate
 
-export NVM_DIR="/Users/sultan/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use 9.3.0
+export AWS_PROFILE=misentropic
+alias gs="git status"

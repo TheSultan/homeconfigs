@@ -11,6 +11,8 @@ call vundle#begin()
   Plugin 'pangloss/vim-javascript'
   Plugin 'nathanaelkane/vim-indent-guides'
   Plugin 'scrooloose/syntastic'
+  "Editorconfig
+  Plugin 'editorconfig/editorconfig-vim'
   "Vagrant
   Plugin 'hashivim/vim-vagrant'
   "Chef with dependencies
