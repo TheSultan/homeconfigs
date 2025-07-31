@@ -84,7 +84,7 @@ alias dockerrmall="docker rm \$(docker ps -a -q)"
 alias dockerstats="docker stats \$(docker ps | awk '{if(NR>1) print \$NF}')"
 
 #Python virtual env
-source ~/bin/python/dev/bin/activate
+source ~/bin/python/dev2/bin/activate
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
