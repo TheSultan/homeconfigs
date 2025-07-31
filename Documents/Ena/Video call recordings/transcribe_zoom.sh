@@ -34,28 +34,5 @@ whisper "$VIDEO_FILE" --model "$MODEL" --language "$LANG" --output_format json -
 
 # Step 3: Convert JSON to SRT using Python
 echo "Converting JSON to SRT..."
-python3 <<EOF
-import json
-from pathlib import Path
+python3 json_to_srt.py "$OUTPUT_DIR/$BASE_NAME.json" "$OUTPUT_DIR/$BASE_NAME.srt"
 
-json_path = Path("$OUTPUT_DIR") / f"{$BASE_NAME}.json"
-srt_path = Path("$OUTPUT_DIR") / f"{$BASE_NAME}.srt"
-
-with open(json_path, "r", encoding="utf-8") as f:
-    data = json.load(f)
-
-def format_timestamp(seconds):
-    h = int(seconds // 3600)
-    m = int((seconds % 3600) // 60)
-    s = int(seconds % 60)
-    ms = int((seconds - int(seconds)) * 1000)
-    return f"{h:02}:{m:02}:{s:02},{ms:03}"
-
-with open(srt_path, "w", encoding="utf-8") as f:
-    for i, seg in enumerate(data["segments"], 1):
-        start = format_timestamp(seg["start"])
-        end = format_timestamp(seg["end"])
-        text = seg["text"].strip()
-        f.write(f"{i}\n{start} --> {end}\n{text}\n\n")
-print(f"SRT written to {srt_path}")
-EOF
