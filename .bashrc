@@ -92,3 +92,4 @@ export NVM_DIR="$HOME/.nvm"
 nvm use 9.3.0
 export AWS_PROFILE=misentropic
 alias gs="git status"
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
