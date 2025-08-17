@@ -93,3 +93,8 @@ nvm use 9.3.0
 export AWS_PROFILE=misentropic
 alias gs="git status"
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+
+# Disable bracketed paste in interactive shells
+if [[ $- == *i* ]]; then
+  printf '\e[?2004l'
+fi
