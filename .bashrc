@@ -98,3 +98,4 @@ export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 if [[ $- == *i* ]]; then
   printf '\e[?2004l'
 fi
+export PATH="$HOME/.local/bin:$PATH"
