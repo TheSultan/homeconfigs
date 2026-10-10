@@ -68,7 +68,31 @@ export ANT_HOME=/usr/share/ant
 export PATH
 
 export PS1="\u@\h \t> "
-export PROMPT_COMMAND="echo -ne '\033]0;${USER}@${HOSTNAME}\007';$PROMPT_COMMAND"
+
+# Keeps the Terminal title as user@host on every prompt, with whatever
+# `title` set (TITLE_OVERRIDE) appended. `title` with no args clears it.
+_auto_title()
+{
+  if [ -n "$TITLE_OVERRIDE" ]; then
+    printf '\033]0;%s@%s: %s\007' "$USER" "$HOSTNAME" "$TITLE_OVERRIDE"
+  else
+    printf '\033]0;%s@%s\007' "$USER" "$HOSTNAME"
+  fi
+}
+case ";$PROMPT_COMMAND;" in
+  *";_auto_title;"*) ;;
+  *) export PROMPT_COMMAND="_auto_title;$PROMPT_COMMAND" ;;
+esac
+
+title()
+{
+  if [ $# -gt 1 ]; then
+    echo "Usage: title [\"custom title\"]  (no argument clears it)"
+    return 1
+  fi
+  TITLE_OVERRIDE="$1"
+  _auto_title
+}
 #TODO: Fix root prompt setting, not working
 #export SUDO_PS1="\[\e[33;1;41m\][\u] \w \$\[\e[0m\] "
 
@@ -99,3 +123,11 @@ if [[ $- == *i* ]]; then
   printf '\e[?2004l'
 fi
 export PATH="$HOME/.local/bin:$PATH"
+
+alias obsidian='open -a Obsidian'
+
+ssh() {
+    command ssh "$@"
+		# Turn off tmux mouse mode in case it was left on
+    printf '\033[?1000l\033[?1002l\033[?1003l\033[?1006l'
+}
