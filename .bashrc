@@ -126,6 +126,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias obsidian='open -a Obsidian'
 
+export PATH="/usr/local/Caskroom/android-platform-tools/37.0.1/platform-tools:$PATH"
+
 ssh() {
     command ssh "$@"
 		# Turn off tmux mouse mode in case it was left on
