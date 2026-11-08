@@ -4,3 +4,6 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
+
+# Native Apple Silicon Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv bash)"
